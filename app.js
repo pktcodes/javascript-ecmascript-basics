@@ -1,31 +1,41 @@
 // var, let , const
-// define, update, redefine
-// const cannot mutate primitive type
+// let, const - blocked scoped {} - anything within {}
+// var - function scoped
 
-// Define
-var number = 100;
-console.log("var : ", number);
-// Update
-number = 200;
-console.log("var : ", number);
-// Redefine - this is not good, that's why let, const are preferred
-var number = "orange";
-console.log("var : ", number);
+console.log(amount);
 
-let amount = 100;
-console.log("let :", amount);
-amount = 200;
-console.log("let :", amount);
-// var amount = "string";
-// console.log("let :", amount);
+// global scope
+var amount = 100;
 
-// primitive Type
-const total = 100;
-console.log("const :", total);
-// total = 200;
-// console.log("const :", total);
+// function scoped - global can't access local
+function calculate() {
+  // local scope
+  var random = "dollars";
+  console.log(`Hello, the amount is ${amount} ${random}`);
+}
+calculate();
+// can't access local
+// console.log(random);
 
-// Object type - can mutate the values
-const person = { name: "bob" };
-person.name = "john";
-console.log(person);
+// if not function scoped i.e block scoped, global can access local value if it has same variable names which will cause problems
+var total = 100;
+var value = true;
+
+// after lines of code, since user writing functionality which should use global total, instead of number he will get string(name collisions)
+if (value) {
+  var total = "oranges";
+  console.log(`Hello, the total is ${total}`);
+}
+console.log(`what is the total: ${total}`);
+
+// global scope
+let number = 1000;
+{
+  // local scope
+  let number = 500;
+}
+{
+  let number = 1200;
+}
+
+console.log(number);
