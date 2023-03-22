@@ -1,24 +1,21 @@
 // Template Strings/Literals - easy to write
+// `` - backticks i.e. above tab key left of 1 key
 
-const firstName = "bob";
-const lastName = "sanders";
-const age = 25;
+const person = {
+  name: "kyle",
+  job: "developer",
+  hobbies: ["surfing", "baking", "bowling"],
+};
 
-/* String Concatenation */
-const phrase =
-  "My full name is " +
-  firstName +
-  " " +
-  lastName +
-  " and I'm " +
-  age +
-  " years old.";
+const result = document.getElementById("result");
 
-console.log(phrase);
+// result.innerHTML = "<h2>" + person.name + "</h2>" + "<p>" + person.job + "</p>";
 
-/* Template String/Literal */
-const person = `Hello, My full name is ${firstName.toUpperCase()} ${lastName.toUpperCase()} and I am ${
-  age * 2
-} years old.`;
-
-console.log(person);
+result.innerHTML = `
+<h2>${person.name}</h2>
+<p>${person.job}</p>
+<ul>${person.hobbies
+  .map(function (item) {
+    return `<li>${item}</li>`;
+  })
+  .join("")}</ul>`;
