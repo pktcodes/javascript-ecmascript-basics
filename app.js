@@ -2,29 +2,20 @@
 // regular function - 'this' refers to parent, left of the dot
 // arrow function - 'this' refers to it's current surrounding scope
 
-const bob = {
-  firstName: "bob",
-  lastName: "smith",
-  sayName: function () {
-    // const self = this;
-    console.log("Inside Bob SayName", this);
-    setTimeout(() => {
-      console.log("Inside Bob SetTimeout: ", this);
-      console.log(`Hello, my name is ${this.firstName} ${this.lastName}`);
-    }, 2000);
-  },
-};
+const btn = document.querySelector(".btn");
 
-const anna = {
-  firstName: "anna",
-  lastName: "sanders",
-  sayName: () => {
-    console.log("Inside Anna SayName: ", this);
-    console.log(`Hello, my name is ${this.firstName} ${this.lastName}`);
-  },
-};
+btn.addEventListener("click", function () {
+  console.log(this);
 
-bob.sayName();
+  // Here, it points to window, since window is parent of setTimeOut
+  // setTimeout(function () {
+  //   console.log(this);
+  //   this.style.color = "black";
+  // }, 2000);
 
-// arrow checks for anna's surrounding scope which is global: window
-anna.sayName();
+  // Here, it points to surrounding scope i.e btn
+  setTimeout(() => {
+    console.log(this);
+    this.style.color = "black";
+  }, 2000);
+});
