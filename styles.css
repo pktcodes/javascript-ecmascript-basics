@@ -12,3 +12,12 @@ h1 {
 .blue {
   color: blue;
 }
+
+.btn {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+}
