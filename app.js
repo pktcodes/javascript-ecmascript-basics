@@ -1,17 +1,22 @@
-// default parameters - a fallback to a value to prevent incase functionality breaks if the parameter is not passed i.e undefined. The argument/parameter passed will have more precedence than the default parameter
+// Destructuring
+// faster/easier way to access/unpack values from arrays
+// objects into variables
+// Arrays
 
-// arrow function gotchas - hositing doesn't work since it has variable name to defined
+const fruits = ["orange", "apple", "lemon"];
+const friends = ["john", "anna", "bob", "peter", "kelly"];
 
-sayHi();
+/* Prior to ES6 */
+const orange = fruits[0];
+const apple = fruits[1];
+const lemon = fruits[2];
 
-const john = "John";
-const anna = "Anna";
+console.log(orange, apple, lemon);
 
-function sayHi(person = "Peter") {
-  console.log(`Hi ${person}`);
-}
+/* ES6 */
+// const [friend, anna, bob, peter, kelly] = friends;
+// console.log(friend, anna, bob);
 
-const sayHello = (person = "Bob") => {
-  console.log(`Hello ${person}`);
-};
-sayHello(anna);
+// select some or skip others
+const [friend, , bob, , kelly] = friends;
+console.log(friend, bob, kelly);
