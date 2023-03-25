@@ -1,21 +1,17 @@
-// Arrow Functions or Fat Arrow Functions
-// regular function - 'this' refers to parent, left of the dot
-// arrow function - 'this' refers to it's current surrounding scope
+// default parameters - a fallback to a value to prevent incase functionality breaks if the parameter is not passed i.e undefined. The argument/parameter passed will have more precedence than the default parameter
 
-const btn = document.querySelector(".btn");
+// arrow function gotchas - hositing doesn't work since it has variable name to defined
 
-btn.addEventListener("click", function () {
-  console.log(this);
+sayHi();
 
-  // Here, it points to window, since window is parent of setTimeOut
-  // setTimeout(function () {
-  //   console.log(this);
-  //   this.style.color = "black";
-  // }, 2000);
+const john = "John";
+const anna = "Anna";
 
-  // Here, it points to surrounding scope i.e btn
-  setTimeout(() => {
-    console.log(this);
-    this.style.color = "black";
-  }, 2000);
-});
+function sayHi(person = "Peter") {
+  console.log(`Hi ${person}`);
+}
+
+const sayHello = (person = "Bob") => {
+  console.log(`Hello ${person}`);
+};
+sayHello(anna);
