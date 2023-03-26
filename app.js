@@ -1,35 +1,30 @@
-// new string methods
-// startsWith(), endsWith(), includes(),repeat()
+// for of - loops through the values of an iterable object
+// String, Array,Map,Set etc  - NOT OBJECT
+// unlike forEach - we can use break, continue
 
-const person = "Peter Smith";
-const employee = "23456-EMP-PETER-SMITH";
-const manager = "23456-MAN-JOHN-DOE";
+const fruits = ["apple", "orange", "lemon", "banana", "peach"];
+const longName = "John Smith Pepper III";
 
-/* startsWith() */
-console.log("=== startsWith() ===");
-console.log(person.startsWith("Pet"));
-// case-sensitive - since it is a string
-console.log(person.startsWith("PETER"));
-console.log(employee.startsWith("EMP", 6));
+/* String */
+let shortName = "";
 
-/* endsWith() */
-console.log("=== endsWith() ===");
-console.log(manager.endsWith("DOE"));
-console.log(manager.endsWith("MAN", 9));
+for (const letter of longName) {
+  if (letter === "") {
+    continue;
+  } else {
+    shortName = shortName + letter;
+  }
+}
+console.log("Short Name: ", shortName);
 
-/* includes() */
-console.log("=== includes() ===");
-console.log(employee.includes("PETER"));
-console.log(employee.includes("pETER"));
+/* Array */
+for (const fruit of fruits) {
+  if (fruit === "banana") {
+    // break;
+    continue;
+  }
+  console.log("Fruit: ", fruit);
+}
 
-/* repeat() */
-console.log("=== repeat() ===");
-console.log(person.repeat(2));
-
-// with Arrow Function
-const multiplyPeople = (person, amount = 5) => {
-  return person.repeat(amount);
-};
-
-const people = multiplyPeople(person, 10);
-console.log(people);
+// break - stop whatever you are doing
+// continue - do not anything more, just to go over to next item in iteration
