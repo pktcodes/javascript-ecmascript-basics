@@ -1,30 +1,28 @@
-// for of - loops through the values of an iterable object
-// String, Array,Map,Set etc  - NOT OBJECT
-// unlike forEach - we can use break, continue
+// Spread Operator ...
+// Allows an iterable to spread/expand individually inside receiver
+// Split into single items and copy them.
 
-const fruits = ["apple", "orange", "lemon", "banana", "peach"];
-const longName = "John Smith Pepper III";
+/* String are iterable too */
+const udemy = "udemy";
 
-/* String */
-let shortName = "";
+/* Arrays */
+const boys = ["john", "bob", "peter", "kelly"];
+const girls = ["anna", "susan"];
+const bestFriend = "arnold";
 
-for (const letter of longName) {
-  if (letter === "") {
-    continue;
-  } else {
-    shortName = shortName + letter;
-  }
-}
-console.log("Short Name: ", shortName);
+const friends = [...boys, bestFriend, ...girls];
+console.log("friends: ", friends);
 
-/* Array */
-for (const fruit of fruits) {
-  if (fruit === "banana") {
-    // break;
-    continue;
-  }
-  console.log("Fruit: ", fruit);
-}
+// Never Reference them directly, since it will mutate original array
+// const newFriends = friends;
+// newFriends[0] = "katrina";
 
-// break - stop whatever you are doing
-// continue - do not anything more, just to go over to next item in iteration
+// console.log("newFriends ", newFriends);
+// console.log("friends got mutated: ", friends);
+
+// Always copy them, will create new and not mutate to original
+const newFriends = [...friends];
+newFriends[0] = "katrina";
+
+console.log("newFriends:", newFriends);
+console.log("friends:", friends);
