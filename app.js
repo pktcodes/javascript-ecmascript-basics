@@ -1,15 +1,48 @@
-// Spread Operator ...
-// Allows an iterable to spread/expand individually inside receiver
-// Split into single items and copy them.
+// Rest Operator ...
+// gathers/collects the items
+// Use cases - destructuring, function parameters
+// common convention - rest
+// spread is different - function arguments
 
-const numbers = [3, 4, 12, 16, 88];
-console.log("Largest:", Math.max(...numbers));
+/* === Arrays Destructuring === */
+console.log("=== Arrays Destructuring ===");
 
-const person = ["John", "Sanders"];
+const fruits = ["apple", "banana", "lemon", "pineapple", "mango"];
+const [first, second, ...favoriteFruits] = fruits;
 
-const sayHello = (firstName, lastName) => {
-  console.log("sayHello:", `Hello ${firstName} ${lastName}`);
+// Gives Error: Rest element must be last element
+// const [...rest, first] = fruits;
+
+console.log("Fruits: ", first, second, favoriteFruits);
+
+/* === Object Destructuring === */
+console.log("=== Objects Destructuring ===");
+
+const person = { name: "john", job: "developer", city: "chicago" };
+const { job, ...rest } = person;
+
+// Same with Objects - Gives Error: Rest element must be last element
+// const { ...rest, job } = fruits;
+
+console.log("Person: ", job, rest);
+
+/* === Function Parameters === */
+console.log("=== Function Parameters ===");
+
+const testScores = [3, 4, 24, 56, 78, 9];
+
+const getAverage = (name, ...scores) => {
+  console.log(name);
+  console.log(scores);
+
+  let total = 0;
+  scores.map((score) => {
+    total += score;
+  });
+  console.log(`${name}'s average score is ${total / scores.length}`);
 };
 
-// sayHello(person[0], person[1]);
-sayHello(...person);
+// getAverage(person.name, 3, 4, 24, 56, 78, 9);
+
+// Function Arguments - Spread Operator
+getAverage(person.name, ...testScores);
