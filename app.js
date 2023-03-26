@@ -1,10 +1,14 @@
 // Spread Operator ...
 // Allows an iterable to spread/expand individually inside reciever
 // Split into single items and copy them.
-// ES2018 - ES8 - Objects
 
-const person = { name: "john", job: "developer" };
-const newPerson = { ...person, city: "chicago", name: "peter" };
+const headings = document.querySelectorAll("h1");
+const result = document.getElementById("result");
 
-console.log("person: ", person);
-console.log("newPerson: ", newPerson);
+const text = [...headings]
+  .map((item) => {
+    return `<span>${item.textContent}</span>`;
+  })
+  .join(" - ");
+result.innerHTML = text;
+console.log(text);
