@@ -1,48 +1,23 @@
-// Rest Operator ...
-// gathers/collects the items
-// Use cases - destructuring, function parameters
-// common convention - rest
-// spread is different - function arguments
+// Array.from and Array.of - NOT ON THE PROTOTYPE
+// Array.from
+// Array.of - creates a new Array instance from a variable number of arguments.
 
-/* === Arrays Destructuring === */
-console.log("=== Arrays Destructuring ===");
+console.log(" === Example ===");
+const example = ["one", "two", "three", "four", "five"];
+console.log(example);
+console.log(example.map);
+console.log(example.from);
+console.log(example.of);
 
-const fruits = ["apple", "banana", "lemon", "pineapple", "mango"];
-const [first, second, ...favoriteFruits] = fruits;
+// These methods are on "Array" Object which is from Window Object
+console.log(" === Array Object ===");
+console.log(Array);
+console.dir(Array);
 
-// Gives Error: Rest element must be last element
-// const [...rest, first] = fruits;
+/* Array.of() */
+console.log("=== Array.of() ===");
 
-console.log("Fruits: ", first, second, favoriteFruits);
+// const person = ["john", 25, true];
 
-/* === Object Destructuring === */
-console.log("=== Objects Destructuring ===");
-
-const person = { name: "john", job: "developer", city: "chicago" };
-const { job, ...rest } = person;
-
-// Same with Objects - Gives Error: Rest element must be last element
-// const { ...rest, job } = fruits;
-
-console.log("Person: ", job, rest);
-
-/* === Function Parameters === */
-console.log("=== Function Parameters ===");
-
-const testScores = [3, 4, 24, 56, 78, 9];
-
-const getAverage = (name, ...scores) => {
-  console.log(name);
-  console.log(scores);
-
-  let total = 0;
-  scores.map((score) => {
-    total += score;
-  });
-  console.log(`${name}'s average score is ${total / scores.length}`);
-};
-
-// getAverage(person.name, 3, 4, 24, 56, 78, 9);
-
-// Function Arguments - Spread Operator
-getAverage(person.name, ...testScores);
+const person = Array.of("john", 25, true);
+console.log(person);
