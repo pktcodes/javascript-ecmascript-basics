@@ -1,23 +1,18 @@
 // Array.from and Array.of - NOT ON THE PROTOTYPE
-// Array.from
-// Array.of - creates a new Array instance from a variable number of arguments.
 
-console.log(" === Example ===");
-const example = ["one", "two", "three", "four", "five"];
-console.log(example);
-console.log(example.map);
-console.log(example.from);
-console.log(example.of);
+// from - returns Array Object from any object with a length property or an iterable object
+// from turns array-like/ish into array - string,nodeList,Set
 
-// These methods are on "Array" Object which is from Window Object
-console.log(" === Array Object ===");
-console.log(Array);
-console.dir(Array);
+/* String */
+const person = "peter";
+console.log(Array.from(person));
 
-/* Array.of() */
-console.log("=== Array.of() ===");
-
-// const person = ["john", 25, true];
-
-const person = Array.of("john", 25, true);
-console.log(person);
+/* Arguments */
+function countTotal() {
+  console.log(arguments);
+  let total = Array.from(arguments).reduce(
+    (total, current) => (total += current)
+  );
+  console.log("Total:", total);
+}
+countTotal(20, 30, 40, 100);
