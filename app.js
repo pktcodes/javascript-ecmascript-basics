@@ -3,16 +3,19 @@
 // from - returns Array Object from any object with a length property or an iterable object
 // from turns array-like/ish into array - string,nodeList,Set
 
-/* String */
-const person = "peter";
-console.log(Array.from(person));
+const paragraphs = document.querySelectorAll("p");
+const result = document.getElementById("result");
+const second = document.getElementById("second");
 
-/* Arguments */
-function countTotal() {
-  console.log(arguments);
-  let total = Array.from(arguments).reduce(
-    (total, current) => (total += current)
-  );
-  console.log("Total:", total);
-}
-countTotal(20, 30, 40, 100);
+let text = Array.from(paragraphs);
+text = text
+  .map((item) => {
+    return `<span>${item.textContent}</span>`;
+  })
+  .join(" ");
+result.innerHTML = text;
+
+const newText = Array.from(document.querySelectorAll("p"), (item) => {
+  return `<span>${item.textContent}</span>`;
+}).join(" ");
+second.innerHTML = newText;
