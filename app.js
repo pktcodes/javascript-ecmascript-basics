@@ -1,6 +1,7 @@
-// "for in" loop - iterate over object properties
-// not advised to use it on arrays, especially if the order is important
-// on arrays use "for of" loop instead
+// Three methods to convert objects into arrays
+// Object.keys() - converts property names into array
+// Object.values() - converts property values into array
+// Object.entries() - converts both
 
 const person = {
   name: "anna",
@@ -8,6 +9,5 @@ const person = {
   location: "chicago",
 };
 
-for (const propertyName in person) {
-  console.log(`${propertyName}: ${person[propertyName]}`);
-}
+const keys = Object.keys(person);
+console.log(keys);
