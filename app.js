@@ -9,5 +9,20 @@ const person = {
   location: "chicago",
 };
 
-const values = Object.values(person);
-console.log(values);
+/* Entires */ -console.log("=== entires ===");
+const result = Object.entries(person);
+console.log(result);
+
+/* Map */ -console.log("=== map ===");
+const newResult = result.map((item) => {
+  const [first, second] = item;
+  // console.log(first, second);
+  return first;
+});
+console.log(newResult);
+
+/* for of */ -console.log("=== for of ===");
+for (const [first, second] of result) {
+  // const [first, second] = item;
+  console.log(first, second);
+}
