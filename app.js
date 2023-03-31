@@ -1,21 +1,41 @@
-// Array.from and Array.of - NOT ON THE PROTOTYPE
+// find - gets the specific item
+// findIndex - gets the index of the item
+// every - every item in the array needs to meet condition
+// some -  atleast one item
 
-// from - returns Array Object from any object with a length property or an iterable object
-// from turns array-like/ish into array - string,nodeList,Set
+const people = [
+  { id: 0, name: "peter" },
+  { id: 1, name: "susan" },
+  { id: 2, name: "anna" },
+];
 
-const paragraphs = document.querySelectorAll("p");
-const result = document.getElementById("result");
-const second = document.getElementById("second");
+/* To get Anna - But filter returns an array,so need index to access */
+console.log("=== filter ===");
+const anna = people.filter((person) => person.name === "anna");
+console.log("Filter Anna: ", anna);
+console.log("Filter Anna: Name:", anna[0].name);
 
-let text = Array.from(paragraphs);
-text = text
-  .map((item) => {
-    return `<span>${item.textContent}</span>`;
-  })
-  .join(" ");
-result.innerHTML = text;
+/* find - returns an item*/
+console.log("=== find ===");
+const searchAnna = people.find((person) => person.name === "anna");
+console.log("searchAnna: ", searchAnna);
+console.log("searchAnnaName: ", searchAnna.name);
 
-const newText = Array.from(document.querySelectorAll("p"), (item) => {
-  return `<span>${item.textContent}</span>`;
-}).join(" ");
-second.innerHTML = newText;
+/* findIndex  - return the index of the item*/
+console.log("=== findIndex ===");
+const searchAnnaIndex = people.findIndex((person) => person.name === "anna");
+console.log("SearchAnnaIndex: ", searchAnnaIndex);
+console.log("SearchAnnaIndexSliced: ", people.slice(0, searchAnnaIndex));
+
+const grades = ["A", "B", "A", "B", "C"];
+const goodGrades = ["A", "B", "A", "B"];
+
+/* every - return true if all the items accept the search criteria*/
+console.log("=== every ===");
+const allGoodGrades = goodGrades.every((grade) => grade !== "C");
+console.log("allGoodGrades: ", allGoodGrades);
+
+/* some - returns true if one item is found within search criteria*/
+console.log("=== some ===");
+const oneBadGrade = goodGrades.some((grade) => grade === "C");
+console.log("oneBadGrade: ", oneBadGrade);
