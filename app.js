@@ -9,5 +9,5 @@ const person = {
   location: "chicago",
 };
 
-const keys = Object.keys(person);
-console.log(keys);
+const values = Object.values(person);
+console.log(values);
