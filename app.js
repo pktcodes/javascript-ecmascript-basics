@@ -1,28 +1,40 @@
-// Three methods to convert objects into arrays
-// Object.keys() - converts property names into array
-// Object.values() - converts property values into array
-// Object.entries() - converts both
+// Set object - stores a collection of unique values of any type
 
-const person = {
-  name: "anna",
-  age: 20,
-  location: "chicago",
-};
+// new Set()
+// add(value)
+// delete(value)
+// clear()
+// has(value)
 
-/* Entires */ -console.log("=== entires ===");
-const result = Object.entries(person);
-console.log(result);
+// iterators
+// entries(),keys(),values(), forEach()
 
-/* Map */ -console.log("=== map ===");
-const newResult = result.map((item) => {
-  const [first, second] = item;
-  // console.log(first, second);
-  return first;
-});
-console.log(newResult);
+/* Set */ console.log("=== Set Object ====");
+const unique = new Set();
+console.log(new Set());
 
-/* for of */ -console.log("=== for of ===");
-for (const [first, second] of result) {
-  // const [first, second] = item;
-  console.log(first, second);
-}
+/* add */ console.log("=== add ===");
+unique.add("first");
+unique.add("first");
+unique.add("first");
+unique.add("second");
+unique.add("third");
+const add = unique.add(4);
+console.log(unique, add);
+
+/* delete */ console.log("=== delete ===");
+const resultDelete = unique.delete("third");
+const resultFive = unique.delete("five");
+console.log(resultDelete);
+console.log(resultFive);
+console.log(unique);
+
+/* has */ console.log("=== has ===");
+const isValue = unique.has("second");
+console.log(isValue);
+console.log(unique.has(30));
+console.log(unique);
+
+/* clear */ console.log("=== clear ===");
+unique.clear();
+console.log(unique);
