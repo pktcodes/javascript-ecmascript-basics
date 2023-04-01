@@ -1,36 +1,27 @@
-// new Set() - accepts iterable objects
+// String includes() - checks if a string contains another string.
 
+console.log("=== Case Sensitive ===");
+const product = {
+  title: "Leather Chair",
+};
+console.log(product.title.includes("le"));
+
+console.log("=== 2nd Argument ===");
+const firstName = "peter";
+const result = firstName.includes("pe", 0);
+console.log(result);
+
+/* Products */
 const products = [
-  {
-    title: "high-back bench",
-    company: "ikea",
-  },
-  {
-    title: "albany table",
-    company: "marcos",
-  },
-  {
-    title: "accent chair",
-    company: "caressa",
-  },
-  {
-    title: "wooden table",
-    company: "ikea",
-  },
+  { title: "Modern Poster" },
+  { title: "Bar Stool" },
+  { title: "Armchair" },
+  { title: "Leather Chair" },
 ];
 
-/* To get unique companies */ console.log("=== Long Way ===");
+const searchTitle = "a";
 
-const companies = products.map((item) => item.company);
-console.log(companies);
-
-const uniqueCompanies = new Set(companies);
-console.log(uniqueCompanies);
-
-const finalCompanies = ["all", ...uniqueCompanies];
-console.log(finalCompanies);
-
-/* Refactor to One Line */ console.log("=== Short Way ===");
-
-const result = [...new Set(products.map((item) => item.company))];
-console.log(result);
+const filteredProducts = products.filter((item) =>
+  item.title.toLowerCase().includes(searchTitle)
+);
+console.log(filteredProducts);
