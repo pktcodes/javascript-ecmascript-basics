@@ -1,40 +1,36 @@
-// Set object - stores a collection of unique values of any type
+// new Set() - accepts iterable objects
 
-// new Set()
-// add(value)
-// delete(value)
-// clear()
-// has(value)
+const products = [
+  {
+    title: "high-back bench",
+    company: "ikea",
+  },
+  {
+    title: "albany table",
+    company: "marcos",
+  },
+  {
+    title: "accent chair",
+    company: "caressa",
+  },
+  {
+    title: "wooden table",
+    company: "ikea",
+  },
+];
 
-// iterators
-// entries(),keys(),values(), forEach()
+/* To get unique companies */ console.log("=== Long Way ===");
 
-/* Set */ console.log("=== Set Object ====");
-const unique = new Set();
-console.log(new Set());
+const companies = products.map((item) => item.company);
+console.log(companies);
 
-/* add */ console.log("=== add ===");
-unique.add("first");
-unique.add("first");
-unique.add("first");
-unique.add("second");
-unique.add("third");
-const add = unique.add(4);
-console.log(unique, add);
+const uniqueCompanies = new Set(companies);
+console.log(uniqueCompanies);
 
-/* delete */ console.log("=== delete ===");
-const resultDelete = unique.delete("third");
-const resultFive = unique.delete("five");
-console.log(resultDelete);
-console.log(resultFive);
-console.log(unique);
+const finalCompanies = ["all", ...uniqueCompanies];
+console.log(finalCompanies);
 
-/* has */ console.log("=== has ===");
-const isValue = unique.has("second");
-console.log(isValue);
-console.log(unique.has(30));
-console.log(unique);
+/* Refactor to One Line */ console.log("=== Short Way ===");
 
-/* clear */ console.log("=== clear ===");
-unique.clear();
-console.log(unique);
+const result = [...new Set(products.map((item) => item.company))];
+console.log(result);
